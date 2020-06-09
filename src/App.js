@@ -5,10 +5,12 @@ import { HomePage } from "./components/HomePage";
 import { SignUpPage } from "./components/SignUpPage";
 import { LoginPage } from "./components/LoginPage";
 import { ArticlePage } from "./components/ArticlePage";
+import { Header } from "./components/Header";
 
 function App() {
   return (
     <div className="App">
+      <Header appTitle="Articles"></Header>
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="/login" component={LoginPage} />
