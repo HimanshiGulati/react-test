@@ -1,5 +1,5 @@
-import ArticleMeta from './ArticleMeta';
-import CommentContainer from './CommentContainer';
+import ArticleData from './ArticleData';
+import CommentCard from './CommentCard';
 import React from 'react';
 import agent from '../../agent';
 import { connect } from 'react-redux';
@@ -45,7 +45,7 @@ class Article extends React.Component {
           <div className="container">
 
             <h1>{this.props.article.title}</h1>
-            <ArticleMeta
+            <ArticleData
               article={this.props.article}
               canModify={canModify} />
 
@@ -82,7 +82,7 @@ class Article extends React.Component {
           </div>
 
           <div className="row">
-            <CommentContainer
+            <CommentCard
               comments={this.props.comments || []}
               errors={this.props.commentErrors}
               slug={this.props.match.params.id}

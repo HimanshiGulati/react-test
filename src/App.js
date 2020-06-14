@@ -4,6 +4,12 @@ import { HomePage } from "./components/HomePage";
 import Login from "./components/LoginPage";
 import Register from "./components/SignUpPage";
 import UserService from "./helpers/config";
+import PortalHeader from "./components/PortalHeader";
+import MyFavorites from "./components/MyFavorites";
+import Profile from "./components/Profile";
+import ProfileSettings from "./components/ProfileSettings";
+import Editor from "./components/Editor";
+import Article from "./components/ArticlePage";
 
 class App extends React.Component {
 
@@ -24,13 +30,22 @@ class App extends React.Component {
             <Route exact path="/" component={HomePage} />
             <Route path="/login" component={Login} />
             <Route path="/register" component={Register} />
+            <Route path="/editor/:slug" component={Editor} />
+            <Route path="/editor" component={Editor} />
+            <Route path="/article/:id" component={Article} />
+            <Route path="/settings" component={ProfileSettings} />
+            <Route path="/@:username/favorites" component={MyFavorites} />
+            <Route path="/@:username" component={Profile} />
           </Switch>
         </div>
       );
     }
     return (
       <div>
-        Hello World
+        <PortalHeader
+          appName={this.props.appName}
+          currentUser={this.props.currentUser}
+        />
       </div>
     );
   }

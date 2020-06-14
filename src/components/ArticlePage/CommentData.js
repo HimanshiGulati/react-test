@@ -1,7 +1,7 @@
 import Comment from './Comment';
 import React from 'react';
 
-const CommentList = props => {
+const CommentData = props => {
   return (
     <div>
       {
@@ -19,4 +19,4 @@ const CommentList = props => {
   );
 };
 
-export default CommentList;
+export default CommentData;

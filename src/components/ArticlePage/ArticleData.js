@@ -2,7 +2,7 @@ import ArticleActions from './ArticleActions';
 import { Link } from 'react-router-dom';
 import React from 'react';
 
-const ArticleMeta = props => {
+const ArticleData = props => {
   const article = props.article;
   return (
     <div className="article-meta">
@@ -24,4 +24,4 @@ const ArticleMeta = props => {
   );
 };
 
-export default ArticleMeta;
+export default ArticleData;

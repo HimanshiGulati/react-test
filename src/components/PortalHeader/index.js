@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { LogIn } from './LogIn';
 import { LogOut } from './LogOut';
 
-class Header extends React.Component {
+class PortalHeader extends React.Component {
   render() {
     return (
       <nav className="navbar navbar-light">
@@ -22,4 +22,4 @@ class Header extends React.Component {
   }
 }
 
-export default Header;
+export default PortalHeader;
