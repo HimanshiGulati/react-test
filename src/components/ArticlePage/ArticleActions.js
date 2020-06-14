@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 import React from 'react';
-import agent from '../../agent';
 import { connect } from 'react-redux';
-import { DELETE_ARTICLE } from '../../constants/actionTypes';
+import { DELETE_ARTICLE } from '../../actions/actionTypes';
+import config from "../../helpers/config";
 
 const mapDispatchToProps = dispatch => ({
   onClickDelete: payload =>
@@ -12,7 +12,7 @@ const mapDispatchToProps = dispatch => ({
 const ArticleActions = props => {
   const article = props.article;
   const del = () => {
-    props.onClickDelete(agent.Articles.del(article.slug))
+    props.onClickDelete(config.Articles.del(article.slug))
   };
   if (props.canModify) {
     return (

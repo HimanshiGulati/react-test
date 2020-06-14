@@ -1,5 +1,4 @@
 import HomeContainer from './HomeContainer';
-import Home from './Home';
 import React from 'react';
 import TagList from './TagList';
 import { connect } from 'react-redux';
@@ -8,32 +7,18 @@ import {
   HOME_PAGE_UNLOADED,
   APPLY_TAG_FILTER
 } from '../../actions/actionTypes';
+import config from '../../helpers/config'
 
 const Promise = global.Promise;
-
-const mapStateToProps = state => ({
-  ...state.home,
-  appName: state.common.appName,
-  token: state.common.token
-});
-
-const mapDispatchToProps = dispatch => ({
-  onClickTag: (tag, pager, payload) =>
-    dispatch({ type: APPLY_TAG_FILTER, tag, pager, payload }),
-  onLoad: (tab, pager, payload) =>
-    dispatch({ type: HOME_PAGE_LOADED, tab, pager, payload }),
-  onUnload: () =>
-    dispatch({ type: HOME_PAGE_UNLOADED })
-});
 
 class Home extends React.Component {
   componentWillMount() {
     const tab = this.props.token ? 'feed' : 'all';
     const articlesPromise = this.props.token ?
-      agent.Articles.feed :
-      agent.Articles.all;
+      config.Articles.feed :
+      config.Articles.all;
 
-    this.props.onLoad(tab, articlesPromise, Promise.all([agent.Tags.getAll(), articlesPromise()]));
+    this.props.onLoad(tab, articlesPromise, Promise.all([config.Tags.getAll(), articlesPromise()]));
   }
 
   componentWillUnmount() {
@@ -68,5 +53,20 @@ class Home extends React.Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  ...state.home,
+  appName: state.common.appName,
+  token: state.common.token
+});
+
+const mapDispatchToProps = dispatch => ({
+  onClickTag: (tag, pager, payload) =>
+    dispatch({ type: APPLY_TAG_FILTER, tag, pager, payload }),
+  onLoad: (tab, pager, payload) =>
+    dispatch({ type: HOME_PAGE_LOADED, tab, pager, payload }),
+  onUnload: () =>
+    dispatch({ type: HOME_PAGE_UNLOADED })
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

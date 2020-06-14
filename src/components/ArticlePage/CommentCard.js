@@ -1,5 +1,5 @@
 import CommentInput from './CommentInput';
-import CommentList from './CommentList';
+import CommentData from './CommentData';
 import { Link } from 'react-router-dom';
 import React from 'react';
 
@@ -12,7 +12,7 @@ const CommentContainer = props => {
           <CommentInput slug={props.slug} currentUser={props.currentUser} />
         </div>
 
-        <CommentList
+        <CommentData
           comments={props.comments}
           slug={props.slug}
           currentUser={props.currentUser} />
@@ -28,7 +28,7 @@ const CommentContainer = props => {
           &nbsp;to add comments on this article.
         </p>
 
-        <CommentList
+        <CommentData
           comments={props.comments}
           slug={props.slug}
           currentUser={props.currentUser} />

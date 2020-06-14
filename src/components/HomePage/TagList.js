@@ -1,5 +1,5 @@
 import React from 'react';
-import agent from '../../agent';
+import config from '../../helpers/config';
 
 const TagList = props => {
     const tags = props.tags;
@@ -10,7 +10,7 @@ const TagList = props => {
                     tags.map(tag => {
                         const handleClick = ev => {
                             ev.preventDefault();
-                            props.onClickTag(tag, page => agent.Articles.byTag(tag, page), agent.Articles.byTag(tag));
+                            props.onClickTag(tag, page => config.Articles.byTag(tag, page), config.Articles.byTag(tag));
                         };
 
                         return (

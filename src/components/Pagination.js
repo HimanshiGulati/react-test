@@ -21,7 +21,7 @@ const Pagination = props => {
         if (props.pager) {
             props.onSetPage(page, props.pager(page));
         } else {
-            props.onSetPage(page, agent.Articles.all(page))
+            props.onSetPage(page, config.Articles.all(page))
         }
     };
 

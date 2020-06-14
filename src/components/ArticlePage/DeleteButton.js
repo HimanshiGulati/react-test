@@ -1,7 +1,7 @@
 import React from 'react';
-import agent from '../../agent';
 import { connect } from 'react-redux';
-import { DELETE_COMMENT } from '../../constants/actionTypes';
+import { DELETE_COMMENT } from '../../actions/actionTypes';
+import config from '../../helpers/config';
 
 const mapDispatchToProps = dispatch => ({
   onClick: (payload, commentId) =>
@@ -10,7 +10,7 @@ const mapDispatchToProps = dispatch => ({
 
 const DeleteButton = props => {
   const del = () => {
-    const payload = agent.Comments.delete(props.slug, props.commentId);
+    const payload = config.Comments.delete(props.slug, props.commentId);
     props.onClick(payload, props.commentId);
   };
 

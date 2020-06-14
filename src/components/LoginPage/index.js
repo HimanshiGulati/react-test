@@ -24,7 +24,7 @@ class Login extends React.Component {
   }
 
   render() {
-    const { email, password, submitted } = this.state;
+    const { email, password } = this.state;
     return (
       <div className="col-md-6 col-md-offset-3">
         <h2>Login</h2>

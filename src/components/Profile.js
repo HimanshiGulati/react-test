@@ -1,4 +1,4 @@
-import ArticleList from './ArticleList';
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -7,7 +7,9 @@ import {
     UNFOLLOW_USER,
     PROFILE_PAGE_LOADED,
     PROFILE_PAGE_UNLOADED
-} from '../constants/actionTypes';
+} from '../actions/actionTypes';
+import config from "../helpers/config";
+import ArticleData from '../components/ArticlePage/ArticleData'
 
 const EditProfileSettings = props => {
     if (props.isUser) {
@@ -63,12 +65,12 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
     onFollow: username => dispatch({
         type: FOLLOW_USER,
-        payload: agent.Profile.follow(username)
+        payload: config.Profile.follow(username)
     }),
     onLoad: payload => dispatch({ type: PROFILE_PAGE_LOADED, payload }),
     onUnfollow: username => dispatch({
         type: UNFOLLOW_USER,
-        payload: agent.Profile.unfollow(username)
+        payload: config.Profile.unfollow(username)
     }),
     onUnload: () => dispatch({ type: PROFILE_PAGE_UNLOADED })
 });
@@ -76,8 +78,8 @@ const mapDispatchToProps = dispatch => ({
 class Profile extends React.Component {
     componentWillMount() {
         this.props.onLoad(Promise.all([
-            agent.Profile.get(this.props.match.params.username),
-            agent.Articles.byAuthor(this.props.match.params.username)
+            config.Profile.get(this.props.match.params.username),
+            config.Articles.byAuthor(this.props.match.params.username)
         ]));
     }
 
@@ -150,7 +152,7 @@ class Profile extends React.Component {
                                 {this.renderTabs()}
                             </div>
 
-                            <ArticleList
+                            <ArticleData
                                 pager={this.props.pager}
                                 articles={this.props.articles}
                                 articlesCount={this.props.articlesCount}
