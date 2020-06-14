@@ -20,7 +20,8 @@
         "redux": "^3.6.0",
         "redux-logger": "^3.0.1",
         "superagent": "^3.8.2",
-        "superagent-promise": "^1.1.0"
+        "superagent-promise": "^1.1.0",
+        "surge": "^0.21.3"
     },
     "scripts": {
         "start": "react-scripts start",
