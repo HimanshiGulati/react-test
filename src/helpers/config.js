@@ -13,9 +13,9 @@ const handleResponse = res => res.body;
 
 const userService = {
     post: (url, body) =>
-        axios.post(`${API_ROOT}${url}`, { body }).then(handleResponse),
+        axios.post(`${API_URL}${url}`, { body }).then(handleResponse),
     get: url =>
-        axios.get(`${API_ROOT}${url}`).then(handleResponse)
+        axios.get(`${API_URL}${url}`).then(handleResponse)
 };
 
 const userActions = {

@@ -1,13 +1,11 @@
 import { Link } from 'react-router-dom';
-import ListErrors from './ListErrors';
 import React from 'react';
-import agent from '../agent';
 import { connect } from 'react-redux';
 import {
   UPDATE_FIELD_AUTH,
   REGISTER,
   REGISTER_PAGE_UNLOADED
-} from '../constants/actionTypes';
+} from '../../actions/actionTypes';
 import UserActions from '../../helpers/config';
 
 const mapStateToProps = state => ({ ...state.auth });
@@ -60,8 +58,6 @@ class SignUpPage extends React.Component {
                   Have an account?
                 </Link>
               </p>
-
-              <ListErrors errors={this.props.errors} />
 
               <form onSubmit={this.submitForm(username, email, password)}>
                 <div>

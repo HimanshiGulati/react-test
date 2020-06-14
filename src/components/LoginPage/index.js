@@ -1,27 +1,12 @@
 import { Link } from 'react-router-dom';
-import ListErrors from './ListErrors';
 import React from 'react';
-import agent from '../agent';
 import { connect } from 'react-redux';
 import {
   UPDATE_FIELD_AUTH,
   LOGIN,
   LOGIN_PAGE_UNLOADED
-} from '../constants/actionTypes';
+} from '../../actions/actionTypes';
 import UserActions from '../../helpers/config';
-
-const mapStateToProps = state => ({ ...state.auth });
-
-const mapDispatchToProps = dispatch => ({
-  onChangeEmail: value =>
-    dispatch({ type: UPDATE_FIELD_AUTH, key: 'email', value }),
-  onChangePassword: value =>
-    dispatch({ type: UPDATE_FIELD_AUTH, key: 'password', value }),
-  onSubmitForm: (email, password) =>
-    dispatch({ type: LOGIN, payload: UserActions.login(email, password) }),
-  onUnload: () =>
-    dispatch({ type: LOGIN_PAGE_UNLOADED })
-});
 
 class Login extends React.Component {
   constructor() {
@@ -84,14 +69,10 @@ const mapDispatchToProps = dispatch => ({
     dispatch({ type: UPDATE_FIELD_AUTH, key: 'email', value }),
   onChangePassword: value =>
     dispatch({ type: UPDATE_FIELD_AUTH, key: 'password', value }),
-  onChangeUsername: value =>
-    dispatch({ type: UPDATE_FIELD_AUTH, key: 'username', value }),
-  onSubmit: (username, email, password) => {
-    const payload = agent.Auth.register(username, email, password);
-    dispatch({ type: REGISTER, payload })
-  },
+  onSubmit: (email, password) =>
+    dispatch({ type: LOGIN, payload: UserActions.login(email, password) }),
   onUnload: () =>
-    dispatch({ type: REGISTER_PAGE_UNLOADED })
+    dispatch({ type: LOGIN_PAGE_UNLOADED })
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);
