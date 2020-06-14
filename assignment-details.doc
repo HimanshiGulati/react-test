@@ -1,0 +1,6 @@
+git link: https://github.com/HimanshiGulati/react-test
+deployed link: plastic-sort.surge.sh
+
+steps:
+npm install
+npm start
