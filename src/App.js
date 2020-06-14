@@ -1,9 +1,9 @@
 import agent from "../agent";
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import Home from "../components/Home";
-import Login from "../components/Login";
-import Register from "../components/Register";
+import Home from "./components/HomePage";
+import Login from "./components/LoginPage";
+import Register from "./components/SignUpPage";
 
 class App extends React.Component {
 
