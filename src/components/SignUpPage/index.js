@@ -6,7 +6,7 @@ import {
   REGISTER,
   REGISTER_PAGE_UNLOADED
 } from '../../actions/actionTypes';
-import UserActions from '../../helpers/config';
+import config from '../../helpers/config';
 
 const mapStateToProps = state => ({ ...state.auth });
 
@@ -18,7 +18,7 @@ const mapDispatchToProps = dispatch => ({
   onChangeUsername: value =>
     dispatch({ type: UPDATE_FIELD_AUTH, key: 'username', value }),
   onSubmit: (username, email, password) => {
-    const payload = UserActions.register(username, email, password);
+    const payload = config.UserActions.register(username, email, password);
     dispatch({ type: REGISTER, payload })
   },
   onUnload: () =>
@@ -32,6 +32,7 @@ class SignUpPage extends React.Component {
     this.changePassword = ev => this.props.onChangePassword(ev.target.value);
     this.changeUsername = ev => this.props.onChangeUsername(ev.target.value);
     this.submitForm = (username, email, password) => ev => {
+      console.log(username, email, password)
       ev.preventDefault();
       this.props.onSubmit(username, email, password);
     }
@@ -58,6 +59,7 @@ class SignUpPage extends React.Component {
                   Have an account?
                 </Link>
               </p>
+
 
               <form onSubmit={this.submitForm(username, email, password)}>
                 <div>

@@ -9,7 +9,7 @@ import {
     PROFILE_PAGE_UNLOADED
 } from '../actions/actionTypes';
 import config from "../helpers/config";
-import ArticleData from '../components/ArticlePage/ArticleData'
+import ArticleList from './ArticleList'
 
 const EditProfileSettings = props => {
     if (props.isUser) {
@@ -152,7 +152,7 @@ class Profile extends React.Component {
                                 {this.renderTabs()}
                             </div>
 
-                            <ArticleData
+                            <ArticleList
                                 pager={this.props.pager}
                                 articles={this.props.articles}
                                 articlesCount={this.props.articlesCount}

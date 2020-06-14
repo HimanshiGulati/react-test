@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 export const LogIn = props => {
-    if (props.user) {
+    if (props.currentUser) {
         return (
             <ul className="nav navbar-nav pull-xs-right">
 

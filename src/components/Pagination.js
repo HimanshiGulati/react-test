@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { SET_PAGE } from '../constants/actionTypes';
+import { SET_PAGE } from '../actions/actionTypes';
+import config from '../helpers/config';
 
 const mapDispatchToProps = dispatch => ({
     onSetPage: (page, payload) =>

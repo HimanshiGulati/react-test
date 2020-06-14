@@ -1,17 +1,18 @@
-import HomeContainer from './HomeContainer';
 import React from 'react';
-import TagList from './TagList';
 import { connect } from 'react-redux';
 import {
   HOME_PAGE_LOADED,
   HOME_PAGE_UNLOADED,
   APPLY_TAG_FILTER
 } from '../../actions/actionTypes';
-import config from '../../helpers/config'
+import Home from './Home';
+import TagList from './TagList';
+import config from '../../helpers/config';
+import HomeContainer from './HomeContainer';
 
 const Promise = global.Promise;
 
-class Home extends React.Component {
+class HomePage extends React.Component {
   componentWillMount() {
     const tab = this.props.token ? 'feed' : 'all';
     const articlesPromise = this.props.token ?
@@ -69,4 +70,5 @@ const mapDispatchToProps = dispatch => ({
     dispatch({ type: HOME_PAGE_UNLOADED })
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+
+export default connect(mapStateToProps, mapDispatchToProps)(HomePage);

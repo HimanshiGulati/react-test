@@ -13,9 +13,9 @@ class PortalHeader extends React.Component {
             {this.props.appName.toLowerCase()}
           </Link>
 
-          <LogOut user={this.props.user} />
+          <LogOut currentUser={this.props.currentUser} />
 
-          <LogIn user={this.props.user} />
+          <LogIn currentUser={this.props.currentUser} />
         </div>
       </nav>
     );

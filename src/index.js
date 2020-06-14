@@ -4,12 +4,15 @@ import React from 'react';
 import { store, history } from './helpers/store';
 import { ConnectedRouter } from 'react-router-redux';
 import App from './App'
+import { Route, Switch } from 'react-router-dom';
 
 
 ReactDOM.render((
   <Provider store={store}>
     <ConnectedRouter history={history}>
-      <App />
+      <Switch>
+        <Route path="/" component={App} />
+      </Switch>
     </ConnectedRouter>
   </Provider>
 

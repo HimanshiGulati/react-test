@@ -1,6 +1,6 @@
 import login from './login';
 import article from './articles';
-import articleData from './articleData';
+import articleList from './articleList';
 import common from './common';
 import editor from './editor';
 import home from './home';
@@ -11,7 +11,7 @@ import { routerReducer } from 'react-router-redux';
 
 const rootReducer = combineReducers({
     article,
-    articleData,
+    articleList,
     login,
     common,
     editor,
